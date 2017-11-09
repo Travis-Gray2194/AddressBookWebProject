@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>AddressForm</title>
+</head>
+<body>
+<form action="#" th:action="@{/process}" th:object="${address}" method="post">
+
+    <input type="hidden" th:field="*{id}" />
+    <label>Name:</label><input type="text" th:field="*{name}" />
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br />
+
+    <label>Phone Number:</label><input type="text" th:field="*{phonenumber}" />
+    <span th:if="${#fields.hasErrors('phonenumber')}" th:errors="*{phonenumber}"></span><br />
+
+    <label>Email:</label><textarea rows="3" th:field="*{email}" />
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br />
+
+    <input type="submit" value="Submit" />
+
+</form>
+</body>
+</html>
